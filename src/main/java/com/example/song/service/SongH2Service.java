@@ -68,17 +68,17 @@ public class SongH2Service implements SongRepository{
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 		}
 		if (song.getSongName() != null){
-			db.update("UPDATE playlist SET songName = ?", song.getSongName());
+			db.update("UPDATE playlist SET songName = ? where songId = ?", song.getSongName(),songId);
 		}
 		if (song.getLyricist() != null){
-			db.update("UPDATE playlist SET lyricist = ?", song.getLyricist());
+			db.update("UPDATE playlist SET lyricist = ? where songId = ?", song.getLyricist(),songId);
 		}
 
 		if (song.getSinger() != null){
-			db.update("UPDATE playlist SET singer = ?", song.getSinger());
+			db.update("UPDATE playlist SET singer = ? where songId = ?", song.getSinger(),songId);
 		}
 		if (song.getMusicDirector() != null){
-			db.update("UPDATE playlist SET musicDirector = ?", song.getMusicDirector());
+			db.update("UPDATE playlist SET musicDirector = ? where songId = ?", song.getMusicDirector(),songId);
 		}
 
 
